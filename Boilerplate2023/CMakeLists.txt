@@ -37,6 +37,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${GLM_DIR}")
 
 # freetype
 find_package(Freetype REQUIRED)
+# set(FREETYPE_LIBRARY "usr/local/freetype/2_12_1/lib/libfreetype.dylib")
+# set(FREETYPE_INCLUDE_DIRS "usr/local/freetype/2_12_1/include")
 target_link_libraries(${PROJECT_NAME} ${FREETYPE_LIBRARIES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${FREETYPE_INCLUDE_DIRS})
 
@@ -54,7 +56,8 @@ if (APPLE)
   target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
 endif()
 
-# GLEW
-pkg_check_modules(GLEW REQUIRED glew)
-include_directories(${GLEW_INCLUDE_DIRS})
-target_link_libraries (${PROJECT_NAME} ${GLEW_LIBRARIES})
+# # GLEW
+# pkg_check_modules(GLEW REQUIRED glew)
+# include_directories("/opt/homebrew/Cellar/glew")
+# # set(GLEW_LIBRARIES "/opt/homebrew/Cellar/glew/2.2.0/lib")
+# target_link_libraries (${PROJECT_NAME} ${GLEW_LIBRARIES})
